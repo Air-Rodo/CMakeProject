@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CMakeProject</string>
+    <string name="c_call_java_method">C++ Call JavaMethod</string>
+</resources>
