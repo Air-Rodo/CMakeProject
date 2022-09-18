@@ -33,5 +33,12 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "commandLen:" + CardResponse.commandLen);
             }
         });
+        binding.sampleTest2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                testJni.setPerson();
+                Log.d(TAG, "person:" + new CardResponse().getPerson());
+            }
+        });
     }
 }

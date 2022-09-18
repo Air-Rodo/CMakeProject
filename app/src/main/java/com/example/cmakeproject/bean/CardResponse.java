@@ -1,5 +1,7 @@
 package com.example.cmakeproject.bean;
 
+import android.util.Log;
+
 /**
  * Desc:
  *
@@ -8,7 +10,20 @@ package com.example.cmakeproject.bean;
  * Email:
  */
 public class CardResponse {
+
+    private static final String TAG = "TAG";
     public byte[] command;
 
     public static int commandLen;
+
+    public Person person;
+
+    public void setPerson(Person person) {
+        Log.d(TAG, "C++ 调用了 setPerson()");
+        this.person = person;
+    }
+
+    public Person getPerson(){
+        return person;
+    }
 }

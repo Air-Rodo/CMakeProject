@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CMakeProject</string>
-    <string name="c_call_java_method">C++ Call JavaMethod</string>
+    <string name="c_call_java_method1">C++ Call JavaMethod1</string>
+    <string name="c_call_java_method2">C++ Call JavaMethod2</string>
 </resources>

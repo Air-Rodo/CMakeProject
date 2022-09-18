@@ -9,8 +9,10 @@ package com.example.cmakeproject;
  */
 public class TestJni {
     static {
-        System.loadLibrary("CMakeProject");
+        System.loadLibrary("test");
     }
 
     public native int setResponse();
+
+    public native int setPerson();
 }

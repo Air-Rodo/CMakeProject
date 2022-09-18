@@ -24,11 +24,31 @@ Java_com_example_cmakeproject_TestJni_setResponse(JNIEnv *env, jobject thiz) {
     const char *value;
     jCardResponseClass = env->FindClass("com/example/cmakeproject/bean/CardResponse");
     jCardObject = env->AllocObject(jCardResponseClass);
-//    setCommandLen = env->GetMethodID(jCardResponseClass, "setCommandLen", "(I)V");
-//    jCommandFieldId = env->GetFieldID(jCardResponseClass, "command", "[B");
     jCommandLenFieldId = env->GetStaticFieldID(jCardResponseClass, "commandLen", "I");
     env->SetStaticIntField(jCardResponseClass, jCommandLenFieldId, 10);
-//    env->GetStaticIntField(jCardResponseClass,jCommandLenFieldId);
     LOGD("commandLen: %d", env->GetStaticIntField(jCardResponseClass, jCommandLenFieldId))
     return 1;
+}
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_example_cmakeproject_TestJni_setPerson(JNIEnv *env, jobject thiz) {
+    jclass jCardResponse;
+    jclass jPerson;
+    jobject jCardResObj;
+    jobject jPersonObj;
+    jmethodID setPerson;
+    jmethodID setUsername;
+    jmethodID setPassword;
+    jPerson = env->FindClass("com/example/cmakeproject/bean/Person");
+    jPersonObj = env->AllocObject(jPerson);
+    setUsername = env->GetMethodID(jPerson,"setUsername", "(Ljava/lang/String;)V");
+    setPassword = env->GetMethodID(jPerson,"setPassword", "(I)V");
+    std::string value = "张三";
+    jstring username = env->NewStringUTF(value.c_str());
+    env->CallVoidMethod(jPersonObj,setUsername,username);
+    env->CallVoidMethod(jPersonObj,setPassword,123456);
+    jCardResponse = env->FindClass("com/example/cmakeproject/bean/CardResponse");
+    jCardResObj = env->AllocObject(jCardResponse);
+    setPerson = env->GetMethodID(jCardResponse,"setPerson", "(Lcom/example/cmakeproject/bean/Person;)V");
+    env->CallVoidMethod(jCardResObj, setPerson, jPersonObj);
 }
