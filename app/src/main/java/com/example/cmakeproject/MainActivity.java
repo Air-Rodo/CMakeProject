@@ -5,39 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
-import com.example.cmakeproject.bean.CardResponse;
+import com.example.cmake.api.TestApi;
+import com.example.cmake.bean.User;
 import com.example.cmakeproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "TAG";
     private ActivityMainBinding binding;
-    private TestJni testJni;
+
+    private TestApi api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        testJni = new TestJni();
         initListener();
     }
 
     private void initListener() {
+        api = new TestApi();
         binding.sampleTest1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                testJni.setResponse();
-                Log.d(TAG, "commandLen:" + CardResponse.commandLen);
+                User test = api.test();
+                Log.d(TAG, "user:" + test);
             }
         });
         binding.sampleTest2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                testJni.setPerson();
-                Log.d(TAG, "person:" + new CardResponse().getPerson());
+
             }
         });
     }

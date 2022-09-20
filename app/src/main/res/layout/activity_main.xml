@@ -10,7 +10,7 @@
         android:id="@+id/sample_test1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/c_call_java_method1"
+        android:text="@string/create_object"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

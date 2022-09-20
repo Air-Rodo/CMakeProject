@@ -1,16 +1,16 @@
-package com.example.cmakeproject.bean;
+package com.example.cmake.bean;
 
 /**
  * Desc:
  *
  * @author Coco
- * Created on 2022/9/18 23:36
+ * Created on 2022/9/19 22:06
  * Email:
  */
-public class Person {
-    public String username;
+public class User {
+    private String username;
 
-    public int password;
+    private String password;
 
     public String getUsername() {
         return username;
@@ -20,17 +20,17 @@ public class Person {
         this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "User{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';
